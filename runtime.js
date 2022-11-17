@@ -41,7 +41,6 @@ const largeArray = getSizedArray(10000);
 const extraLargeArray = getSizedArray(100000);
 
 
-
 // How long does it take to double every number in a given 
 // array? 
 
@@ -49,8 +48,6 @@ const extraLargeArray = getSizedArray(100000);
 // perf.start();                     // Starts timer
 // doublerAppend(extraLargeArray);
 // let resultsAppend = perf.stop();  // Stops timer and save time results
-// // insert 980.876137 ms
-// // append 4.606061 ms
 
 // // Try it with second function
 // perf.start();
@@ -59,6 +56,8 @@ const extraLargeArray = getSizedArray(100000);
 // //
 
 // Try it with first function
+// // insert 980.876137 ms
+// // append 4.606061 ms
 
 
 
@@ -91,16 +90,117 @@ const extraLargeArray = getSizedArray(100000);
 // // append 841.926 μs
 
 
-perf.start();
-doublerInsert(tinyArray);
-let resultsInsert = perf.stop();
+// perf.start();
+// doublerInsert(tinyArray);
+// let resultsInsert = perf.stop();
 
-doublerAppend(tinyArray);
-let resultsAppend = perf.stop();
+// doublerAppend(tinyArray);
+// let resultsAppend = perf.stop();
 // insert 127.141 μs
 // append 766.84 μs
 
+// ALL CAPS SO YOU KNOW THIS IS WHERE I DOCUMENT MY FINDINGS :)
+// The easy answer would be because the arrays are longer the slower the time will be (even though its still fast lol)
+// the ending on most is almost 2 times as fast
+// the longest one to complete is small array bc of the difference
+// but the largest array takes aroung the same time to start and complete
+// still researching...
 
-console.log('Results for the extraLargeArray');
-console.log("insert", resultsInsert.preciseWords);
-console.log("append", resultsAppend.preciseWords);
+// console.log('Results for the extraLargeArray');
+// console.log("insert", resultsInsert.preciseWords);
+// console.log("append", resultsAppend.preciseWords);
+console.log('question one')
+function addToZero(arr){
+    for (let i = 0; arr.length > i; i++){
+        for(let x = i; arr.length > x; x++){
+            while (i > x){
+                }if(arr[i] + arr[x] === 0){
+                return true
+                 } 
+            }
+        }
+        return false
+    }
+
+
+
+console.log(addToZero([]));
+// -> False
+
+console.log(addToZero([1]));
+// -> False
+
+console.log(addToZero([1, 2, 3]));
+// -> False
+
+console.log(addToZero([1, 2, 3, -2]));
+// -> true
+
+console.log('question two')
+
+function hasUniqueChars(word){
+    let newWord = word.toLowerCase()
+    for(let i = 0; newWord.length - 1 > i; i++) {
+        for (let j = i + 1; newWord.length > j; j++){
+            if (newWord[i] === newWord[j]){
+            return `not unique '${newWord[i]}' equals more than 1`
+            }
+        }
+    }
+    return 'unique'
+}
+console.log('notes---')
+// for my noting purposes! i liked the way this one was solved more than mine, just never thought
+// about using new Set([])
+// 
+// function hasUniqueChars(word) {
+//     let uniqueChars = new Set([])
+//     for (let i = 0; i < word.length; i++) {
+//       uniqueChars.add(word[i])
+//     }
+//     return uniqueChars.size === word.length
+//   }
+  console.log('ending notes---') 
+
+
+console.log(hasUniqueChars("Monday"));
+// -> True
+
+console.log(hasUniqueChars("Moonday"));
+// -> False
+
+
+
+console.log('question three')
+
+alphabets = 'abcdefghijklmnopqrstuvwxyz'.split("");
+function isPangram(sentence){
+    sentence = sentence.toLowerCase()
+     if (alphabets.every(x => sentence.includes(x))){
+        return true
+    } else {
+        return false
+    }
+}
+
+
+
+console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
+// -> True
+
+console.log(isPangram("I like cats, but not mice"));
+// -> False
+
+console.log('last but not least')
+
+function findLongestWord(arr){
+    const helloSir = arr.map(string => string.length)
+    
+    return Math.max(...helloSir)
+}
+    
+
+
+
+console.log(findLongestWord(["hi", "hello"]));
+// -> 5
