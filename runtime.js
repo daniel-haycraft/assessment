@@ -122,7 +122,8 @@ function addToZero(arr){
         return false
     }
 
-
+// time O(n^2)
+// space O(1)
 
 console.log(addToZero([]));
 // -> False
@@ -149,6 +150,10 @@ function hasUniqueChars(word){
     }
     return 'unique'
 }
+// time O(n^2)
+// space O(1)
+
+
 console.log('notes---')
 // for my noting purposes! i liked the way this one was solved more than mine, just never thought
 // about using new Set([])
@@ -182,7 +187,8 @@ function isPangram(sentence){
         return false
     }
 }
-
+// time O(n)
+// space O(1)
 
 
 console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
