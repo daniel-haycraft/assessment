@@ -204,9 +204,12 @@ function findLongestWord(arr){
     
     return Math.max(...helloSir)
 }
-    
+   
 
 
 
 console.log(findLongestWord(["hi", "hello"]));
 // -> 5
+
+// time O(n)
+// space O(1)
